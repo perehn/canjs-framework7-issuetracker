@@ -1,0 +1,1 @@
+define(['app/models/testmodel'], function(){});
