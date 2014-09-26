@@ -23,6 +23,10 @@ BaseController.extend('Page.Listpage',
 	},
 	postRender : function(options){
 	
+	},
+	'.item-link click' : function(el,ev){
+		ev.stop();
+		App.loadPage('itempage', {item : el.model()})
 	}
 
 });

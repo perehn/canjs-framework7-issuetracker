@@ -14,17 +14,12 @@ BaseController.extend('Page.Itempage',
 	
 	getData : function(){
 		
-		return {
-			items : TestModel.findAll()
-		}
-		
 		
 	},
 
 	
 	preRender : function(options){
-		var id = Number(options.subpage);
-		options.item = options.items.findById(id);
+		
 	},
 	postRender : function(options){
 	

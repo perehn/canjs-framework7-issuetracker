@@ -59,7 +59,7 @@ define([
 			FM7App = new Framework7({
 				
 				
-				ajaxLinks : '.fm7link',
+				ajaxLinks : '.link',
 				swipeBackPage : true,
 				debug : true,
 				canjsPlugin : {}

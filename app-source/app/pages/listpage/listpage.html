@@ -1,12 +1,24 @@
-<h2>
-List Page
-</h2>
-
-
+<div class="list-block media-list contacts-list searchbar-found" style="display: block;">
+<div class="list-group">
 <ul>
-{{#each items}}
-<li>
-<a href="#!itempage/{{id}}">{{name}}</a>
-</li>
-{{/each}}
+
+	{{#each items}}
+	<li {{data 'model'}} class="contact-item">
+		<a href="#" class="item-link">
+			<div class="item-content">
+				<div class="item-inner">
+					<div class="item-title-row">
+						<div class="item-title">{{name}}</div>
+					</div>
+					<div class="item-subtitle">{{name}}</div>
+				</div>
+			</div>
+		</a>
+	</li>
+	
+	{{/each}}
+		
+	
 </ul>
+</div>
+</div>
