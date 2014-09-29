@@ -2,7 +2,7 @@ define(['can'],
 function(can){
 
 
-can.Model.extend('Comment',
+can.Model.extend('Model.Comment',
 {
 	
 },

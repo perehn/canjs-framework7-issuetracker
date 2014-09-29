@@ -13,6 +13,10 @@ BaseController.extend('Page.IssuePage',
 {
 	template : template,
 	
+	preRender : function(options){
+		options.attr('newComment', new Model.Comment());
+		},
+	
 	renderNavbar : function(navbar){
 		var self = this;
 		navbar.html(navbarTemplate(this.options));
@@ -21,6 +25,20 @@ BaseController.extend('Page.IssuePage',
 			ev.stop();
 			App.openPopup(Page.EditIssuePage, {issue : self.options.issue})
 		})
+	},
+	'a#post-comment click' : function(el,ev){
+		ev.stop();
+		var comment = this.options.newComment;
+		comment.attr('date', new Date());
+		this.options.issue.addComment(comment);
+		
+		this.options.attr('newComment',new Model.Comment());
+	},
+	'a#move-to-next-status click' : function(el,ev){
+		ev.stop();
+		var issue = this.options.issue;
+		issue.attr('status', issue.nextStatus());
+		issue.save();
 	}
 	
 	

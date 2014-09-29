@@ -1,11 +1,13 @@
-<div class="list-block media-list issue-list" style="display: block;">
+<div class="list-block media-list issue-list" >
 <div class="list-group">
 
 	<ul>
 	{{#each statusMap}}
-		<li class="h2">{{title}}</li>
+		<li class="h2">{{statusText @key}}</li>
 		
-		{{#each issues}}
+		
+		
+		{{#each .}}
 			<li  class="contact-item">
 				<a href="#" class="item-link" {{data 'model'}}>
 					<div class="item-content">

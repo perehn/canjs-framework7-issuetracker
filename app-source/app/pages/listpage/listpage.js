@@ -21,16 +21,12 @@ BaseController.extend('Page.ListPage',
 	},
 	preRender : function(options){
 		
-		options.statusMap = new can.Map({
-			'todo' : {title : 'ToDo'},
-			'inprogress' : {title : 'In Progress'},
-			'done' : {title : 'Done'}
-		})
+		options.attr('statusMap',  new can.Map({
+			'todo' : options.issues.withStatus('todo'),
+			'inprogress' : options.issues.withStatus('inprogress'),
+			'done' : options.issues.withStatus('done')
+		}));
 	
-		options.statusMap.each(function(status,key){
-			var list = options.issues.withStatus(key);
-			status.attr('issues', options.issues.withStatus(key));
-		})
 	},
 
 	renderNavbar : function(navbar){
@@ -41,6 +37,7 @@ BaseController.extend('Page.ListPage',
 			App.openPopup(Page.EditIssuePage, {issue : new Issue()})
 		})
 	},
+	
 	'.item-link click' : function(el,ev){
 		ev.stop();
 		App.openPage(Page.IssuePage, {issue : el.model()})
@@ -51,15 +48,13 @@ BaseController.extend('Page.ListPage',
 	
 		var statusMap = this.options.statusMap;
 		if(data.from){
-			var fromList = statusMap.attr(data.from).issues;
+			var fromList = statusMap.attr(data.from);
 			fromList.remove(data.issue);
 		}
 		if(data.to){
-			var toList = statusMap.attr(data.to).issues;
+			var toList = statusMap.attr(data.to);
 			toList.push(data.issue);
 		}
-		
-		
 	}
 
 });

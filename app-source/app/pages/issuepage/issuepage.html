@@ -16,10 +16,11 @@
 			<div class="item-content ">
 			
 				<div class="item-inner status">
-				<div class="item-title label">{{issue.status}}</div>
+				<div class="item-title label">{{statusText issue.status}} </div>
 				<div class="item-input">
-					<a class="button">Move to Done</a>
-					
+					{{#if issue.nextStatus}}
+					<a class="button" id="move-to-next-status">Move to {{statusText issue.nextStatus}}</a>
+					{{/if}}
 				</div>
 				</div>
 			</div>
@@ -47,12 +48,12 @@
 	
 	
 	
-	<textarea class="description new-comment" placeholder="Post Comment" can-value="newcomment"></textarea>
+	<textarea class="description new-comment" placeholder="Post Comment" can-value="newComment.text"></textarea>
 	
 	<div class="row">
 		<div class="col-75"></div>
 		<div class="col-25">
-			<a class="button">Post</a>
+			<a class="button" id="post-comment">Post</a>
 		</div>
 	</div>
          

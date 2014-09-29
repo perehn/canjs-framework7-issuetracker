@@ -108,7 +108,15 @@ define([
 		
 	});
 	
-	
+	can.mustache.registerHelper('statusText',
+		  function(_value){
+			var value = can.isFunction(_value) ? _value() : _value;
+		    switch(value){
+		    case 'todo': return 'ToDo';
+		    case 'inprogress': return 'In Progress';
+		    case 'done': return 'Done';
+		  }
+	});
 	
 	new AppControl(document, {});
 	

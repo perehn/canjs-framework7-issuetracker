@@ -13,15 +13,24 @@ can.Model.extend('Issue',
 {
 	
 	status : 'todo',
+	comments : [],
+	
 	init : function(){
 		var self = this;
 		this.bind("status", function(ev, to, from){
 		    self.statusChange = {to : to, from : from};
 		})
-		
 	},
+	
+	addComment : function(comment){
+		this.comments.push(comment);
+	},
+	
 	save : function(){
 		var self = this;
+		if(this.id == null){ // If new created
+			this.statusChange = {to: this.status};
+		}
 		return this._super().done(function(){
 			var statusChange = self.statusChange;
 			if(statusChange && statusChange.to != statusChange.from){
@@ -39,8 +48,13 @@ can.Model.extend('Issue',
 		this.statusChange = null;
 		this._super();
 	},
-	define : {
-		
+	
+	nextStatus : function(){
+		switch(this.attr('status')){
+			case 'todo': return 'inprogress';
+			case 'inprogress': return 'done';
+			case 'done': return null;
+		}
 	}
 });
 
