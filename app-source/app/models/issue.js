@@ -18,6 +18,7 @@ can.Model.extend('Issue',
 		this.bind("status", function(ev, to, from){
 		    self.statusChange = {to : to, from : from};
 		})
+		
 	},
 	save : function(){
 		var self = this;
@@ -37,6 +38,9 @@ can.Model.extend('Issue',
 	restore : function(){
 		this.statusChange = null;
 		this._super();
+	},
+	define : {
+		
 	}
 });
 

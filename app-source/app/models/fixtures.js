@@ -19,7 +19,8 @@ function(){
 	
 	
 	var issueStore = initStore([
-	    {title : "Do refactoring", description : 'Need to refactor code base', status : "todo"},     	          		    
+	    {title : "Do refactoring", description : 'Need to refactor code base Need to refactor code base Need to refactor code base Need to refactor code base', status : "todo", 
+	    	comments : [{date : new Date(), text : 'We should look into this'}, {date : new Date(), text : 'We definitely should'}]},     	          		    
 	    {title : "Look over test", description : 'Need to look over tests', status : "todo"},
 	    {title : "Check header", description : 'The header needs to be checked up', status : "inprogress"}
 	  ]);

@@ -43,7 +43,7 @@ BaseController.extend('Page.ListPage',
 	},
 	'.item-link click' : function(el,ev){
 		ev.stop();
-		App.openPage(Page.EditIssuePage, {issue : el.model()})
+		App.openPage(Page.IssuePage, {issue : el.model()})
 	},
 	
 	
