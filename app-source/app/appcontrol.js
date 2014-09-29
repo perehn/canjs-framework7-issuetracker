@@ -31,25 +31,29 @@ define([
 	
 	App = {
 			
-			openPage : function(url, options){
+			openPage : function(pageController, options){
 				var config;
-				
-				if(typeof url !== 'string' && typeof controllerOptions === 'undefined'){
-					config = url;
+				if(typeof pageController === 'object'){
+					var config = pageController;
 				}else{
-					config = {url : url, options : options}
+					config = {
+							pageController : pageController,
+							options: options
+						}
 				}
-				
-				FM7App.openPage(FM7App.mainView, config);
+				FM7App.openPage(App.mainView, config);
 			},
-			openPopup : function(url, options){
-				
-				var config = {
-					url : url,
-					options: options
+			openPopup : function(pageController, options){
+				var config;
+				if(typeof pageController === 'object'){
+					var config = pageController;
+				}else{
+					config = {
+							pageController : pageController,
+							options: options
+						}
 				}
-				
-				FM7App.openPopup(url, options);
+				FM7App.openPopup(App.popupView, config);
 			}
 
 	}
@@ -63,30 +67,34 @@ define([
 			
 			this.element.find('body').append(template({}));
 			
+			var popupView, mainView;
+			
 			FM7App = new Framework7({
 				
 				
 				ajaxLinks : '.link',
 				swipeBackPage : true,
 				debug : true,
-				canjsPlugin : {}
+				canjsPlugin : {
+					
+				}
 				
 				
 			});
 			
-			FM7App.mainView = FM7App.addView('.view-main', {
+			App.mainView = FM7App.addView('.view-main', {
 				// Because we use fixed-through navbar we can enable dynamic navbar
 				dynamicNavbar: true,
-				domCache : true 
+				domCache : true
 			});
-			FM7App.popupView = FM7App.addView('.popup > .view', {
+			App.popupView = FM7App.addView('.popup > .view', {
 				dynamicNavbar: true,
 				domCache : true 
 			});
-			FM7App.mainView.history = []; // Clear index page
+			App.mainView.history = []; // Clear index page
 			
 
-			App.openPage( {url : 'listpage', options : {}, animatePages : false, showBackLink : false});
+			App.openPage( {pageController : Page.Listpage, options : {}, animatePages : false, showBackLink : false});
 			
 		
 		}
