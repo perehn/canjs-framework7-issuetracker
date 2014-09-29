@@ -19,10 +19,12 @@ BaseController.extend('Page.Itempage',
 	},
 
 	renderNavbar : function(navbar){
+		var self = this;
 		navbar.html(navbarTemplate(this.options));
 		
-		this.on(navbar.find('a#edit'), 'click', function(){
-			console.log('navbar click');
+		this.on(navbar.find('a#edit'), 'click', function(ev){
+			ev.stop();
+			App.openPopup(Page.Edititempage, {item : self.options.item})
 		})
 	},
 	

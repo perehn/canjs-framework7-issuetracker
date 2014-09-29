@@ -66,8 +66,7 @@ define([
 
 			
 			this.element.find('body').append(template({}));
-			
-			var popupView, mainView;
+		
 			
 			FM7App = new Framework7({
 				
@@ -83,7 +82,7 @@ define([
 			});
 			
 			App.mainView = FM7App.addView('.view-main', {
-				// Because we use fixed-through navbar we can enable dynamic navbar
+				
 				dynamicNavbar: true,
 				domCache : true
 			});
@@ -97,6 +96,10 @@ define([
 			App.openPage( {pageController : Page.Listpage, options : {}, animatePages : false, showBackLink : false});
 			
 		
+		},
+		'.popup .controller close' : function(el,ev){
+			
+			FM7App.closeModal('.popup');
 		}
 		
 	});

@@ -25,10 +25,6 @@ BaseController.extend('Page.Listpage',
 	postRender : function(options){
 	
 	},
-	'.item-link click' : function(el,ev){
-		ev.stop();
-		App.openPage(Page.Itempage, {item : el.model()})
-	},
 	renderNavbar : function(navbar){
 		navbar.html(navbarTemplate(this.options));
 	
@@ -36,6 +32,14 @@ BaseController.extend('Page.Listpage',
 			ev.stop();
 			App.openPopup(Page.Edititempage, {item : new TestModel()})
 		})
+	},
+	'.item-link click' : function(el,ev){
+		ev.stop();
+		App.openPage(Page.Itempage, {item : el.model()})
+	},
+	
+	'{TestModel} created' : function(ev, a, item){
+		this.options.items.push(item);
 	}
 
 });
