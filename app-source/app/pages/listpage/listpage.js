@@ -22,9 +22,7 @@ BaseController.extend('Page.Listpage',
 	preRender : function(options){
 		
 	},
-	postRender : function(options){
-	
-	},
+
 	renderNavbar : function(navbar){
 		navbar.html(navbarTemplate(this.options));
 	

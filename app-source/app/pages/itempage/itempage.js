@@ -13,11 +13,6 @@ BaseController.extend('Page.Itempage',
 {
 	template : template,
 	
-	getData : function(){
-		
-		
-	},
-
 	renderNavbar : function(navbar){
 		var self = this;
 		navbar.html(navbarTemplate(this.options));
@@ -26,14 +21,9 @@ BaseController.extend('Page.Itempage',
 			ev.stop();
 			App.openPopup(Page.Edititempage, {item : self.options.item})
 		})
-	},
-	
-	preRender : function(options){
-		
-	},
-	postRender : function(options){
-	
 	}
+	
+	
 
 });
 
