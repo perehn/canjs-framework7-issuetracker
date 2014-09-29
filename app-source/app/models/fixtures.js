@@ -19,8 +19,8 @@ function(){
 	
 	
 	var issueStore = initStore([
-	               	          		    
-	    {title : "Look over test", description : 'Need to look over tests', status : "inprogress"},
+	    {title : "Do refactoring", description : 'Need to refactor code base', status : "todo"},     	          		    
+	    {title : "Look over test", description : 'Need to look over tests', status : "todo"},
 	    {title : "Check header", description : 'The header needs to be checked up', status : "inprogress"}
 	  ]);
 	

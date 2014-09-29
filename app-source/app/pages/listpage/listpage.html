@@ -1,24 +1,26 @@
 <div class="list-block media-list contacts-list searchbar-found" style="display: block;">
 <div class="list-group">
-<ul>
 
-	{{#each issues}}
-	<li  class="contact-item">
-		<a href="#" class="item-link" {{data 'model'}}>
-			<div class="item-content">
-				<div class="item-inner">
-					<div class="item-title-row">
-						<div class="item-title">{{title}}</div>
+	
+	{{#each statusMap}}
+		<div>{{title}}</div>
+		<ul>
+		{{#each issues}}
+			<li  class="contact-item">
+				<a href="#" class="item-link" {{data 'model'}}>
+					<div class="item-content">
+						<div class="item-inner">
+							<div class="item-title-row">
+								<div class="item-title">{{title}}</div>
+							</div>
+							<div class="item-subtitle">{{description}}</div>
+						</div>
 					</div>
-					<div class="item-subtitle">{{description}}</div>
-				</div>
-			</div>
-		</a>
-	</li>
-	
+				</a>
+			</li>
+		{{/each}}
+		</ul>
 	{{/each}}
-		
 	
-</ul>
 </div>
 </div>

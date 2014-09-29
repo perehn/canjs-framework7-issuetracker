@@ -100,6 +100,10 @@ define([
 		'.popup .controller close' : function(el,ev){
 			
 			FM7App.closeModal('.popup');
+		},
+		'.view-main .controller close' : function(el,ev){
+			
+			App.mainView.goBack();
 		}
 		
 	});
