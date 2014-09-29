@@ -8,7 +8,9 @@ requirejs.config({
     
     'text':						'../bower_components/text/text',
     
-    'canjs-commons':			'../bower_components/canjs-commons/canjs-commons',
+    //'canjs-commons':			'../bower_components/canjs-commons/canjs-commons',
+    'canjs-commons':			'../../canjs-commons/canjs-commons',
+    
     'mtemplate':				'../bower_components/canjs-commons/canjs-commons/mustachetemplate',
     'basecontroller':			'../bower_components/canjs-commons/canjs-commons/basecontroller',
     //'framework7-canjsplugin':	'../bower_components/canjs-commons/canjs-commons/fm7-plugin/framework7-canjsplugin',

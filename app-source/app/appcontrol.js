@@ -26,9 +26,7 @@ define([
          'app/models/fixtures',
          
          'framework7',
-         //'canjs-commons/fm7-plugin/framework7-canjsplugin',
-         'framework7-canjsplugin'
-     
+         'canjs-commons/fm7-plugin/framework7-canjsplugin'
          ], function(template) {
 	
 	App = {
