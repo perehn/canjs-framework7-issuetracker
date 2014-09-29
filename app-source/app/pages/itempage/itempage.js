@@ -20,8 +20,8 @@ BaseController.extend('Page.Itempage',
 
 	renderNavbar : function(navbar){
 		navbar.html(navbarTemplate(this.options));
-		this.options.navbar = navbar;		
-		this.on(navbar, 'click', function(){
+		
+		this.on(navbar.find('a#edit'), 'click', function(){
 			console.log('navbar click');
 		})
 	},

@@ -11,7 +11,9 @@ requirejs.config({
     'canjs-commons':			'../bower_components/canjs-commons/canjs-commons',
     'mtemplate':				'../bower_components/canjs-commons/canjs-commons/mustachetemplate',
     'basecontroller':			'../bower_components/canjs-commons/canjs-commons/basecontroller',
-
+    //'framework7-canjsplugin':	'../bower_components/canjs-commons/canjs-commons/fm7-plugin/framework7-canjsplugin',
+    'framework7-canjsplugin':	'../../canjs-commons/canjs-commons/fm7-plugin/framework7-canjsplugin',
+    
     'framework7' : 				"../bower_components/framework7/dist/js/framework7",
     },
   shim: {

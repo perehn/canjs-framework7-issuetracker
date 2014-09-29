@@ -27,13 +27,13 @@ BaseController.extend('Page.Listpage',
 	},
 	'.item-link click' : function(el,ev){
 		ev.stop();
-		App.loadPage('itempage', {item : el.model()})
+		App.openPage('itempage', {item : el.model()})
 	},
 	renderNavbar : function(navbar){
 		navbar.html(navbarTemplate(this.options));
-		this.options.navbar = navbar;		
-		this.on(navbar, 'click', function(){
-			console.log('navbar click');
+	
+		this.on(navbar.find('a#create-new'), 'click', function(ev){
+			App.openPopup('edititempage', {item : new TestModel()})
 		})
 	}
 

@@ -26,13 +26,14 @@ define([
          'app/models/fixtures',
          
          'framework7',
-         'canjs-commons/fm7-plugin/framework7-canjsplugin'
+         //'canjs-commons/fm7-plugin/framework7-canjsplugin',
+         'framework7-canjsplugin'
      
          ], function(template) {
 	
 	App = {
 			
-			loadPage : function(url, options){
+			openPage : function(url, options){
 				var config;
 				
 				if(typeof url !== 'string' && typeof controllerOptions === 'undefined'){
@@ -41,10 +42,16 @@ define([
 					config = {url : url, options : options}
 				}
 				
-				FM7App.loadPage(FM7App.mainView, config);
+				FM7App.openPage(FM7App.mainView, config);
 			},
-			loadModal : function(PageClass, options){
+			openPopup : function(url, options){
 				
+				var config = {
+					url : url,
+					options: options
+				}
+				
+				FM7App.openPopup(url, options);
 			}
 
 	}
@@ -75,13 +82,13 @@ define([
 				domCache : true 
 			});
 			FM7App.popupView = FM7App.addView('.popup > .view', {
-				dynamicNavbar: false,
+				dynamicNavbar: true,
 				domCache : true 
 			});
 			FM7App.mainView.history = []; // Clear index page
 			
 
-			App.loadPage( {url : 'listpage', options : {}, animatePages : false, showBackLink : false});
+			App.openPage( {url : 'listpage', options : {}, animatePages : false, showBackLink : false});
 			
 		
 		}
