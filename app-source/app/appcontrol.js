@@ -42,6 +42,8 @@ define([
 				}
 				
 				FM7App.loadPage(FM7App.mainView, config);
+			},
+			loadModal : function(PageClass, options){
 				
 			}
 

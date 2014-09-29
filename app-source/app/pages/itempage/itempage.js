@@ -1,7 +1,8 @@
 define(['mtemplate!app/pages/itempage/itempage.html', 
+        'mtemplate!app/pages/itempage/pagenavbar.mustache',
         'basecontroller'],
 	
-function(template, BaseController){
+function(template, navbarTemplate, BaseController){
 
 BaseController.extend('Page.Itempage',
 /* @Static */
@@ -17,6 +18,13 @@ BaseController.extend('Page.Itempage',
 		
 	},
 
+	renderNavbar : function(navbar){
+		navbar.html(navbarTemplate(this.options));
+		this.options.navbar = navbar;		
+		this.on(navbar, 'click', function(){
+			console.log('navbar click');
+		})
+	},
 	
 	preRender : function(options){
 		
