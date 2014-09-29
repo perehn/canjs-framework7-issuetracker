@@ -93,7 +93,7 @@ define([
 			App.mainView.history = []; // Clear index page
 			
 
-			App.openPage( {pageController : Page.Listpage, options : {}, animatePages : false, showBackLink : false});
+			App.openPage( {pageController : Page.ListPage, options : {}, animatePages : false, showBackLink : false});
 			
 		
 		},

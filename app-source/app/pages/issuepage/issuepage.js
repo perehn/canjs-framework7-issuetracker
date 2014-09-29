@@ -1,10 +1,10 @@
-define(['mtemplate!app/pages/itempage/itempage.html', 
-        'mtemplate!app/pages/itempage/pagenavbar.mustache',
+define(['mtemplate!app/pages/issuepage/issuepage.html', 
+        'mtemplate!app/pages/issuepage/pagenavbar.html',
         'basecontroller'],
 	
 function(template, navbarTemplate, BaseController){
 
-BaseController.extend('Page.Itempage',
+BaseController.extend('Page.IssuePage',
 /* @Static */
 {
 	
@@ -19,7 +19,7 @@ BaseController.extend('Page.Itempage',
 		
 		this.on(navbar.find('a#edit'), 'click', function(ev){
 			ev.stop();
-			App.openPopup(Page.Edititempage, {item : self.options.item})
+			App.openPopup(Page.EditIssuePage, {issue : self.options.issue})
 		})
 	}
 	

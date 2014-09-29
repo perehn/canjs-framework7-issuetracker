@@ -1,1 +1,1 @@
-define(['app/models/testmodel'], function(){});
+define(['app/models/issue'], function(){});

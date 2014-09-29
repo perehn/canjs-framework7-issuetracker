@@ -18,16 +18,16 @@ function(){
 	}
 	
 	
-	var testModelStore = initStore([
+	var issueStore = initStore([
 	               	          		    
-	            	        		    {name : "Peter Tosh", company : 'The Chillaz'},
-	            	        		    {name : "Romli Far", company : 'Mostiv'}
-	            	        		  ]);
+	    {title : "Look over test", description : 'Need to look over tests', status : "inprogress"},
+	    {title : "Check header", description : 'The header needs to be checked up', status : "inprogress"}
+	  ]);
 	
 	can.fixture({
-		'GET /testmodel' : testModelStore.findAll,
-		'POST /testmodel' : testModelStore.create,
-		'PUT /testmodel/{id}' : testModelStore.update
+		'GET /issue' : issueStore.findAll,
+		'POST /issue' : issueStore.create,
+		'PUT /issue/{id}' : issueStore.update
 	})
 	
 	

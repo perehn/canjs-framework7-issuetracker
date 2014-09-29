@@ -1,9 +1,9 @@
-define(['mtemplate!app/pages/edititempage/edititempage.html', 
+define(['mtemplate!app/pages/editissuepage/editissuepage.html', 
         'basecontroller'],
 	
 function(template, BaseController){
 
-BaseController.extend('Page.Edititempage',
+BaseController.extend('Page.EditIssuePage',
 /* @Static */
 {
 	
@@ -13,9 +13,8 @@ BaseController.extend('Page.Edititempage',
 	template : template,
 	
 	preRender : function(options){
-		if(!options.item){
-			console.error('item is not defined');
-		}	
+		
+		this.options.issue.backup();
 	},
 
 	
@@ -28,18 +27,15 @@ BaseController.extend('Page.Edititempage',
 	'a#save click' : function(el,ev){
 		ev.stop();
 		var self = this;
-		this.options.item.backup();
-		this.options.item.save().done(function(){
+		this.options.issue.backup();
+		this.options.issue.save().done(function(){
 			self.element.trigger('close');
 		});
 	},
 
-	
-	preRender : function(options){
-		this.options.item.backup();
-	},
+
 	destroy : function(){
-		this.options.item.restore();
+		this.options.issue.restore();
 		this._super();
 	}
 

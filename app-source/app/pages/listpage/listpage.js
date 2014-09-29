@@ -1,10 +1,10 @@
 define(['mtemplate!app/pages/listpage/listpage.html', 
-        'mtemplate!app/pages/listpage/pagenavbar.mustache',
+        'mtemplate!app/pages/listpage/pagenavbar.html',
         'basecontroller'],
 	
 function(template, navbarTemplate, BaseController){
 
-BaseController.extend('Page.Listpage',
+BaseController.extend('Page.ListPage',
 /* @Static */
 {
 	
@@ -15,7 +15,7 @@ BaseController.extend('Page.Listpage',
 	
 	getData : function(){
 		return {
-			items : TestModel.findAll()
+			issues : Issue.findAll()
 		}
 		
 	},
@@ -28,16 +28,16 @@ BaseController.extend('Page.Listpage',
 	
 		this.on(navbar.find('a#create-new'), 'click', function(ev){
 			ev.stop();
-			App.openPopup(Page.Edititempage, {item : new TestModel()})
+			App.openPopup(Page.EditIssuePage, {issue : new Issue()})
 		})
 	},
 	'.item-link click' : function(el,ev){
 		ev.stop();
-		App.openPage(Page.Itempage, {item : el.model()})
+		App.openPage(Page.IssuePage, {issue : el.model()})
 	},
 	
-	'{TestModel} created' : function(ev, a, item){
-		this.options.items.push(item);
+	'{Issue} created' : function(ev, a, issue){
+		this.options.issues.push(issue);
 	}
 
 });
