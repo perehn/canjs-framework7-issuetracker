@@ -118,6 +118,12 @@ define([
 		  }
 	});
 	
+	can.mustache.registerHelper('dateformat',
+			  function(_value){
+				var value = can.isFunction(_value) ? _value() : _value;
+			    return value.toDateString();
+		});
+	
 	new AppControl(document, {});
 	
 	
