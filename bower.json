@@ -8,7 +8,7 @@
     "requirejs": "~2.1.14",
     "text": "latest",
     "canjs-commons": "https://github.com/perehn/canjs-commons.git",
-    "framework7":	"latest"
+    "framework7":	"~0.9.6"
 	}
 }
 
