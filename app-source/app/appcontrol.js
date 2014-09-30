@@ -23,7 +23,8 @@ define([
          'framework7',
          
          'canjs-commons/extensions',
-         'canjs-commons/fm7-plugin/framework7-canjsplugin',
+         
+         'canjsfm7-plugin/plugin',
          
          'app/pages',
          'app/models',

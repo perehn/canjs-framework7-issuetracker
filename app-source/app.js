@@ -13,7 +13,7 @@ requirejs.config({
     
     'mtemplate':				'../bower_components/canjs-commons/canjs-commons/mustachetemplate',
     'basecontroller':			'../bower_components/canjs-commons/canjs-commons/basecontroller',
-    'framework7-canjsplugin':	'../bower_components/canjs-commons/canjs-commons/fm7-plugin/framework7-canjsplugin'
+    'canjsfm7-plugin':				'app/canjsfm7-plugin'
     //'framework7-canjsplugin':	'../../canjs-commons/canjs-commons/fm7-plugin/framework7-canjsplugin',
     
     
