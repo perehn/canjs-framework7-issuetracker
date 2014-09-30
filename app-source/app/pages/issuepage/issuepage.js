@@ -15,7 +15,7 @@ BaseController.extend('Page.IssuePage',
 	
 	preRender : function(options){
 		options.attr('newComment', new Model.Comment());
-		},
+	},
 	
 	renderNavbar : function(navbar){
 		var self = this;
