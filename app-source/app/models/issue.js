@@ -2,7 +2,7 @@ define(['can'],
 function(can){
 
 
-can.Model.extend('Issue',
+can.Model.extend('Model.Issue',
 /* @Static */
 {
 	findAll : 'GET /issue',
@@ -38,7 +38,7 @@ can.Model.extend('Issue',
 			self.backup();
 			if(statusChange.from != statusChange.to){
 				statusChange.issue = self;
-				can.trigger(Issue, 'statuschange', statusChange);
+				can.trigger(Model.Issue, 'statuschange', statusChange);
 			}
 			
 		})
@@ -57,7 +57,7 @@ can.Model.extend('Issue',
 });
 
 
-Issue.List = Issue.List.extend({
+Model.Issue.List = Model.Issue.List.extend({
 	
 }, {
 	withStatus : function(status) {

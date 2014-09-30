@@ -15,7 +15,7 @@ BaseController.extend('Page.ListPage',
 	
 	getData : function(){
 		return {
-			issues : Issue.findAll()
+			issues : Model.Issue.findAll()
 		}
 		
 	},
@@ -44,7 +44,7 @@ BaseController.extend('Page.ListPage',
 	},
 	
 	
-	'{Issue} statuschange' : function(Issue, ev, statusChange){
+	'{Model.Issue} statuschange' : function(Issue, ev, statusChange){
 	
 		var statusMap = this.options.statusMap;
 		if(statusChange.from){
