@@ -15,8 +15,6 @@ BaseController.extend('Page.EditIssuePage',
 	
 	preRender : function(options){
 		
-		this.options.issue.backup();
-		
 	},
 	
 	renderNavbar : function(navbar){
@@ -40,7 +38,6 @@ BaseController.extend('Page.EditIssuePage',
 		var self = this;
 		
 		this.options.issue.save().done(function(issue){
-			issue.backup();
 			self.element.trigger('close');
 		});
 	},

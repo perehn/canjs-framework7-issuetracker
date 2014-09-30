@@ -44,16 +44,16 @@ BaseController.extend('Page.ListPage',
 	},
 	
 	
-	'{Issue} statuschange' : function(Issue, ev, data){
+	'{Issue} statuschange' : function(Issue, ev, statusChange){
 	
 		var statusMap = this.options.statusMap;
-		if(data.from){
-			var fromList = statusMap.attr(data.from);
-			fromList.remove(data.issue);
+		if(statusChange.from){
+			var fromList = statusMap.attr(statusChange.from);
+			fromList.remove(statusChange.issue);
 		}
-		if(data.to){
-			var toList = statusMap.attr(data.to);
-			toList.push(data.issue);
+		if(statusChange.to){
+			var toList = statusMap.attr(statusChange.to);
+			toList.push(statusChange.issue);
 		}
 	}
 

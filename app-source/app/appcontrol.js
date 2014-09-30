@@ -55,7 +55,6 @@ define([
 				}
 				FM7App.openPopup(App.popupView, config);
 			}
-
 	}
 	
 	can.Control.extend('AppControl',{

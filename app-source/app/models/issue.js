@@ -16,10 +16,7 @@ can.Model.extend('Issue',
 	comments : [],
 	
 	init : function(){
-		var self = this;
-		this.bind("status", function(ev, to, from){
-		    self.statusChange = {to : to, from : from};
-		})
+		this.backup();
 	},
 	
 	addComment : function(comment){
@@ -27,25 +24,26 @@ can.Model.extend('Issue',
 	},
 	
 	save : function(){
-		var self = this;
+		var self = this, statusChange;
 		if(this.id == null){ // If new created
-			this.statusChange = {to: this.status};
+			statusChange = {to: this.status};
 		}
 		return this._super().done(function(){
-			var statusChange = self.statusChange;
-			if(statusChange && statusChange.to != statusChange.from){
-				
-				can.trigger(Issue, 'statuschange', {
-					from : self.statusChange.from,
-					to : self.statusChange.to,
-					issue : self
-				})
-				self.statusChange = null;
+			
+			statusChange = statusChange || {
+				from : self._backupStore.status,
+				to : self.status
 			}
+			
+			self.backup();
+			if(statusChange.from != statusChange.to){
+				statusChange.issue = self;
+				can.trigger(Issue, 'statuschange', statusChange);
+			}
+			
 		})
 	},
 	restore : function(){
-		this.statusChange = null;
 		this._super();
 	},
 	
