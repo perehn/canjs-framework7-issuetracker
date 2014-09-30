@@ -38,8 +38,9 @@ BaseController.extend('Page.EditIssuePage',
 	'a#save click' : function(el,ev){
 		ev.stop();
 		var self = this;
-		this.options.issue.backup();
-		this.options.issue.save().done(function(){
+		
+		this.options.issue.save().done(function(issue){
+			issue.backup();
 			self.element.trigger('close');
 		});
 	},
