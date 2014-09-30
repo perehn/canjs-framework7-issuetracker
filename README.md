@@ -2,7 +2,7 @@ canjs-framework7-issuetracker
 =============================
 
 
-Example project of CanJS and Framework7. The project highlights how the 2 frameworks can be combined.  
+Example project with CanJS and Framework7. The project highlights how the 2 frameworks can be combined.  
 
 Installation:<br/>
 <code>
@@ -23,3 +23,4 @@ To build production:<br/>
 grunt build
 </code>
 
+For development version, use indexdev.html
