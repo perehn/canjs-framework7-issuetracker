@@ -14,13 +14,19 @@ BaseController.extend('Page.EditIssuePage',
 	template : template,
 	
 	preRender : function(options){
+		if(options.issue == null){
+			options.attr('issue', new Model.Issue());
+			options.attr('navbarTitle', 'Create Issue');
+		}else{
+			options.attr('navbarTitle', 'Edit Issue');
+		}
+		
 		
 	},
 	
 	renderNavbar : function(navbar){
 		var self = this, options = this.options;
 		
-		options.attr('navbarTitle', options.issue.id==null?'Create Issue' : 'Edit Issue');
 		
 		navbar.html(navbarTemplate(options));
 		

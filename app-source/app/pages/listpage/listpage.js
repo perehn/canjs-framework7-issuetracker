@@ -34,7 +34,7 @@ BaseController.extend('Page.ListPage',
 	
 		this.on(navbar.find('a#create-new'), 'click', function(ev){
 			ev.stop();
-			App.openPopup(Page.EditIssuePage, {issue : new Issue()})
+			App.openPopup(Page.EditIssuePage, {})
 		})
 	},
 	
